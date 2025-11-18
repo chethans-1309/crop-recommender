@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Python: Run Flask (app.py)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/app.py",
+            "console": "integratedTerminal",
+            "env": {
+                "FLASK_ENV": "development"
+            }
+        },
+        {
+            "name": "Python: Streamlit",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/streamlit_app.py",
+            "console": "integratedTerminal"
+        }
+    ]
+}

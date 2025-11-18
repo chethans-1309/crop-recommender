@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Crop Recommender</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .unit-badge { background-color: #1f8a4a; color: white; padding: .45rem .7rem; font-weight:600; }
+    .cta-shadow { box-shadow: 0 12px 30px rgba(31,138,74,0.18); }
+    .card-soft { box-shadow: 0 10px 30px rgba(16,24,40,0.06); }
+    .hero-overlay { background: linear-gradient(180deg, rgba(18,83,45,0.78), rgba(18,83,45,0.55)); mix-blend-mode: multiply; }
+    .fade-slide { transform: translateY(6px); opacity: 0; transition: all .38s cubic-bezier(.2,.9,.3,1); }
+    .fade-slide.show { transform: translateY(0); opacity: 1; }
+    .modal-backdrop { background: rgba(0,0,0,0.45); }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-[#f3faf1] via-[#eef9ee] to-white min-h-screen">
+
+  <!-- NAV -->
+  <header class="bg-[#196f45] text-white">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M3 12c0-4 6-9 9-9s6 5 6 9-3 9-6 9-9-4-9-9z" stroke="white" stroke-width="1.2"></path>
+        </svg>
+        <span class="font-semibold text-xl">Crop Recommendation</span>
+      </div>
+      <nav class="hidden md:flex gap-6 items-center text-sm">
+        <a class="hover:underline" href="#">Home</a>
+        <a class="hover:underline" href="#">Dashboard</a>
+        <a class="hover:underline" href="#">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative">
+    <div class="relative h-48 md:h-64 lg:h-72" style="background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=60'); background-size: cover; background-position:center;">
+      <div class="absolute inset-0 hero-overlay rounded-b-[24px]"></div>
+      <div class="absolute inset-0 flex items-center justify-center">
+        <div class="text-center text-white px-6">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold drop-shadow-sm">Smart Crop Recommendation System</h1>
+          <p class="mt-3 max-w-2xl mx-auto text-sm md:text-base opacity-90">Using AI to help farmers choose the best crops for their land based on soil & weather conditions</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="max-w-6xl mx-auto px-6 -mt-10 pb-20">
+    <div class="bg-white rounded-xl card-soft p-6 md:p-10">
+      <h2 class="text-2xl font-semibold text-[#196f45] text-center mb-6">Enter Soil & Environmental Data</h2>
+
+      <!-- FORM -->
+      <form id="crop-form" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-sm font-medium mb-2">Nitrogen (N)</label>
+            <div class="flex">
+              <input name="N" required type="number" step="any" class="w-full rounded-l-lg border border-gray-200 p-3 focus:outline-none focus:ring-2 focus:ring-green-200" placeholder="Enter Nitrogen value">
+              <span class="unit-badge rounded-r-lg">ppm</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Phosphorus (P)</label>
+            <div class="flex">
+              <input name="P" required type="number" step="any" class="w-full rounded-l-lg border border-gray-200 p-3 focus:outline-none focus:ring-2 focus:ring-green-200" placeholder="Enter Phosphorus value">
+              <span class="unit-badge rounded-r-lg">ppm</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Potassium (K)</label>
+            <div class="flex">
+              <input name="K" required type="number" step="any" class="w-full rounded-l-lg border border-gray-200 p-3 focus:outline-none focus:ring-2 focus:ring-green-200" placeholder="Enter Potassium value">
+              <span class="unit-badge rounded-r-lg">ppm</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-sm font-medium mb-2">Temperature</label>
+            <div class="flex">
+              <input name="temperature" required type="number" step="any" class="w-full rounded-l-lg border border-gray-200 p-3 focus:outline-none focus:ring-2 focus:ring-green-200" placeholder="Enter Temperature">
+              <span class="unit-badge rounded-r-lg">°C</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">Humidity</label>
+            <div class="flex">
+              <input name="humidity" required type="number" step="any" class="w-full rounded-l-lg border border-gray-200 p-3 focus:outline-none focus:ring-2 focus:ring-green-200" placeholder="Enter Humidity">
+              <span class="unit-badge rounded-r-lg">%</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-2">pH Value</label>
+            <div class="flex">
+              <input name="ph" required type="number" step="any" class="w-full rounded-l-lg border border-gray-200 p-3 focus:outline-none focus:ring-2 focus:ring-green-200" placeholder="Enter pH value">
+              <span class="unit-badge rounded-r-lg">pH</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-2">Rainfall</label>
+          <div class="flex">
+            <input name="rainfall" required type="number" step="any" class="w-full rounded-l-lg border border-gray-200 p-3 focus:outline-none focus:ring-2 focus:ring-green-200" placeholder="Enter Rainfall amount">
+            <span class="unit-badge rounded-r-lg">mm</span>
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-6 gap-4">
+          <button id="submit-btn" type="submit" class="inline-flex items-center gap-3 bg-gradient-to-r from-[#1f8a4a] to-[#2aa36a] text-white font-semibold rounded-full px-8 py-3 text-lg cta-shadow hover:translate-y-[-2px] transition-transform">
+            <svg id="btn-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8M8 11h8M8 15h8M6 4h12v16H6z"></path>
+            </svg>
+            <span id="btn-text">Get Recommendation</span>
+            <svg id="btn-spinner" class="hidden animate-spin w-5 h-5 ml-2 text-white" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V4a8 8 0 00-8 8h4z"></path>
+            </svg>
+          </button>
+
+          <button id="more-btn" type="button" class="hidden inline-flex items-center gap-2 bg-white border px-4 py-3 rounded-full text-sm" >
+            More details
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- RESULT CARD -->
+    <div id="result-area" class="max-w-4xl mx-auto mt-8">
+      <div id="result-card" class="fade-slide"></div>
+    </div>
+  </main>
+
+  <!-- Modal (hidden) -->
+  <div id="modal" class="fixed inset-0 hidden items-center justify-center z-50">
+    <div id="backdrop" class="absolute inset-0 modal-backdrop"></div>
+
+    <div class="relative max-w-4xl w-full bg-white rounded-xl p-6 z-60 card-soft">
+      <div class="flex justify-between items-start gap-4">
+        <h3 id="modal-title" class="text-xl font-semibold text-gray-800">Crop details</h3>
+        <button id="modal-close" class="text-gray-500 hover:text-gray-800" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="mt-4 md:flex gap-6">
+        <!-- left column image & quick facts -->
+        <div class="md:w-1/3 space-y-4">
+          <div class="w-full rounded-lg overflow-hidden card-soft">
+            <img id="modal-image" src="" alt="" class="w-full h-48 object-cover">
+          </div>
+
+          <div class="bg-gray-50 rounded-lg p-4">
+            <h4 class="text-sm font-medium text-gray-700">Quick facts</h4>
+            <p class="text-sm text-gray-600 mt-2"><strong>Temperature:</strong> <span id="modal-temp">—</span></p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Soil:</strong> <span id="modal-soil">—</span></p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Irrigation:</strong> <span id="modal-irrigation">—</span></p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Spacing:</strong> <span id="modal-spacing">—</span></p>
+            <p class="text-sm text-gray-600 mt-1"><strong>Harvest:</strong> <span id="modal-harvest">—</span></p>
+          </div>
+
+          <div class="bg-white">
+            <a id="fert-link" class="inline-block px-4 py-2 bg-green-600 text-white rounded hover:shadow" href="#" target="_blank">Open fertilizer guide</a>
+          </div>
+        </div>
+
+        <!-- right column tabs -->
+        <div class="md:flex-1">
+          <div class="mb-3">
+            <nav class="flex gap-3">
+              <button class="tab-btn px-4 py-2 rounded-md bg-green-50 text-green-700" data-tab="overview">Overview</button>
+              <button class="tab-btn px-4 py-2 rounded-md text-gray-600" data-tab="tips">Tips & Pests</button>
+              <button class="tab-btn px-4 py-2 rounded-md text-gray-600" data-tab="analytics">Analytics</button>
+            </nav>
+          </div>
+
+          <div id="tab-overview" class="tab-panel">
+            <p id="modal-desc" class="text-gray-700"></p>
+          </div>
+
+          <div id="tab-tips" class="tab-panel hidden">
+            <h4 class="text-sm font-medium text-gray-700">Cultivation tips</h4>
+            <ul id="tips-list" class="mt-2 list-disc list-inside text-gray-600"></ul>
+
+            <h4 class="mt-4 text-sm font-medium text-gray-700">Common pests & diseases</h4>
+            <ul id="pests-list" class="mt-2 list-disc list-inside text-gray-600"></ul>
+          </div>
+
+          <div id="tab-analytics" class="tab-panel hidden">
+            <h4 class="text-sm font-medium text-gray-700">Feature importance</h4>
+            <div class="mt-2 bg-white p-2 rounded">
+              <canvas id="fi-chart" width="400" height="240"></canvas>
+            </div>
+            <div class="mt-3">
+              <a href="/download_predictions" class="px-4 py-2 bg-gray-100 text-gray-700 rounded text-sm hover:bg-gray-200">Download history</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-16">
+    <div class="bg-gradient-to-r from-[#16643b] to-[#1a7a47] text-white py-8">
+      <div class="max-w-6xl mx-auto px-6 text-center">
+        <p class="font-medium">Crop Recommendation System © 2025. All rights reserved.</p>
+        <p class="text-sm opacity-80 mt-1">Designed to help farmers make informed decisions for better yield</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Minimal client-side metadata (images & short advice). Keys must match predicted crop lowercase:
+    const cropMeta = {
+      apple:   { image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60", advice: "Choose cultivar suited to chill hours and prune properly." },
+      banana:  { image: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=60", advice: "Maintain high K levels for good fruit development." },
+      blackgram: { image: "https://images.unsplash.com/photo-1582515073490-399813b64d13?auto=format&fit=crop&w=800&q=60", advice: "Use inoculant for better nitrogen fixation." },
+      chickpea:{ image: "https://images.unsplash.com/photo-1602718071203-e7f4b2b3ff8b?auto=format&fit=crop&w=800&q=60", advice: "Ensure good drainage and timely weed control." },
+      coconut: { image: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=60", advice: "Intercrop early and feed regularly." },
+      coffee:  { image: "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=800&q=60", advice: "Grow under partial shade for quality." },
+      cotton:  { image: "https://images.unsplash.com/photo-1524594154909-7a60d953a6c8?auto=format&fit=crop&w=800&q=60", advice: "Use integrated pest management for bollworms." },
+      grapes:  { image: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=60", advice: "Train vines for airflow & sunlight." },
+      jute:    { image: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=800&q=60", advice: "Maintain moisture during fiber growth." },
+      kidneybeans: { image: "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=60", advice: "Harvest on time to avoid shattering." },
+      lentil:  { image: "https://images.unsplash.com/photo-1610920231933-ef0c5d6f09ea?auto=format&fit=crop&w=800&q=60", advice: "Plant early and avoid waterlogging." },
+      maize:   { image: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=60", advice: "Side-dress nitrogen during vegetative growth." },
+      mango:   { image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=60", advice: "Manage flowering for even yields." },
+      mothbeans:{ image: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=800&q=60", advice: "Drought tolerant; keep weed-free early." },
+      mungbean:{ image: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=800&q=60", advice: "Short-duration; use inoculant for N fixation." },
+      muskmelon:{ image: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=60", advice: "Ensure pollinators and remove diseased fruits." },
+      orange:  { image: "https://images.unsplash.com/photo-1574226516831-e2921a912f2a?auto=format&fit=crop&w=800&q=60", advice: "Use drip irrigation; apply micronutrients." },
+      papaya:  { image: "https://images.unsplash.com/photo-1621300381204-80cfb3b5a1ca?auto=format&fit=crop&w=800&q=60", advice: "Feed regularly and protect from wind." },
+      pigeonpeas: { image: "https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=800&q=60", advice: "Good rotation crop; harvest before shattering." },
+      pomegranate: { image: "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=60", advice: "Regulate watering to avoid splitting." },
+      rice:    { image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=60", advice: "Split N applications and manage water." },
+      watermelon:{ image: "https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=800&q=60", advice: "Ensure pollination and consistent watering." },
+      default: { image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=60", advice: "Maintain irrigation and nutrients." }
+    };
+
+    // helper: capitalize
+    function capitalize(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+
+    const form = document.getElementById("crop-form");
+    const resultCard = document.getElementById("result-card");
+    const submitBtn = document.getElementById("submit-btn");
+    const moreBtn = document.getElementById("more-btn");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      // UI: spinner on
+      submitBtn.disabled = true;
+      submitBtn.classList.add("opacity-70");
+      document.getElementById("btn-icon").style.display = "none";
+      document.getElementById("btn-text").textContent = "Working...";
+      document.getElementById("btn-spinner").classList.remove("hidden");
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+      for (const k in payload) payload[k] = Number(payload[k]);
+
+      try {
+        const res = await fetch("/predict", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) {
+          const txt = await res.text();
+          throw new Error(txt || "Server error");
+        }
+
+        const data = await res.json();
+        const crop = (data.recommended_crop || "").toLowerCase();
+        showResult(crop, data);
+
+      } catch (err) {
+        showError(err.message || "Unknown error");
+      } finally {
+        // UI: spinner off
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("opacity-70");
+        document.getElementById("btn-spinner").classList.add("hidden");
+        document.getElementById("btn-icon").style.display = "";
+        document.getElementById("btn-text").textContent = "Get Recommendation";
+      }
+    });
+
+    function showResult(cropLower, serverData) {
+      const meta = cropMeta[cropLower] || cropMeta.default;
+      const displayName = cropLower ? capitalize(cropLower) : "Unknown Crop";
+      const details = serverData.crop_details || {};
+
+      const html = `
+        <div class="bg-white rounded-xl p-6 card-soft transform transition duration-500" role="status">
+          <div class="flex flex-col md:flex-row items-center gap-6">
+            <div class="w-full md:w-40 h-40 rounded-lg overflow-hidden card-soft flex items-center justify-center text-white text-3xl font-bold" style="background:linear-gradient(135deg,#dafbe6,#b6f0cf);">
+              <img src="${meta.image}" alt="${displayName}" class="w-full h-full object-cover">
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between gap-4">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-700">Recommended Crop</h3>
+                  <p class="mt-2 text-2xl font-bold text-green-800">${displayName}</p>
+                </div>
+                <div class="text-sm text-gray-500">Confidence: <strong>High</strong></div>
+              </div>
+              <p class="mt-4 text-gray-600">${details.desc || meta.advice || "Maintain proper irrigation and nutrient levels."}</p>
+              <div class="mt-4 flex gap-3">
+                <button id="open-modal-btn" class="px-4 py-2 bg-white border rounded text-sm hover:shadow">More details</button>
+                <a href="${details.fertilizer_link || '#'}" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded text-sm">Open fertilizer guide</a>
+                <a href="/download_predictions" class="px-4 py-2 bg-gray-100 text-gray-700 rounded text-sm hover:bg-gray-200">Download history</a>
+              </div>
+            </div>
+          </div>
+        </div>`;
+
+      resultCard.innerHTML = html;
+      moreBtn.classList.remove("hidden");
+
+      // wire the new button
+      document.getElementById("open-modal-btn").addEventListener("click", () => openModal(cropLower, serverData));
+      moreBtn.onclick = () => openModal(cropLower, serverData);
+
+      setTimeout(() => resultCard.classList.add("show"), 10);
+    }
+
+    function showError(msg) {
+      resultCard.innerHTML = `<div class="bg-red-50 border-l-4 border-red-500 text-red-800 p-4 rounded"><strong>Error:</strong> ${escapeHtml(msg)}</div>`;
+      setTimeout(() => resultCard.classList.add("show"), 10);
+    }
+
+    function escapeHtml(s) { return (s + "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+    // Modal + Chart logic
+    function openModal(cropLower, serverData) {
+      const meta = cropMeta[cropLower] || cropMeta.default;
+      const details = (serverData && serverData.crop_details) ? serverData.crop_details : {};
+
+      const imgEl = document.getElementById("modal-image");
+      if (imgEl) {
+        imgEl.src = meta.image || details.image || "";
+        imgEl.alt = (details.name || cropLower || "Crop").toString();
+      }
+
+      document.getElementById("modal-desc").textContent = details.desc || meta.advice || "No description available.";
+
+      document.getElementById("modal-temp").textContent = details.temp_range || details.temperature || "Not specified";
+      document.getElementById("modal-soil").textContent = details.soil_requirements || "Not specified";
+      document.getElementById("modal-irrigation").textContent = details.irrigation || "Not specified";
+      document.getElementById("modal-spacing").textContent = details.spacing || "Not specified";
+      document.getElementById("modal-harvest").textContent = details.harvest || "Not specified";
+
+      const fLink = document.getElementById("fert-link");
+      if (fLink) {
+        fLink.href = details.fertilizer_link || "#";
+        fLink.style.display = (details.fertilizer_link || details.fertilizer) ? "inline-block" : "none";
+      }
+
+      const tips = Array.isArray(details.tips) ? details.tips : [];
+      const tipsList = document.getElementById("tips-list");
+      if (tipsList) {
+        tipsList.innerHTML = "";
+        if (tips.length === 0) {
+          tipsList.innerHTML = "<li>No tips available.</li>";
+        } else {
+          tips.forEach(t => { const li = document.createElement("li"); li.textContent = t; tipsList.appendChild(li); });
+        }
+      }
+
+      const pests = Array.isArray(details.pests_and_diseases) ? details.pests_and_diseases : (details.pests || []);
+      const pestsList = document.getElementById("pests-list");
+      if (pestsList) {
+        pestsList.innerHTML = "";
+        if (!pests || pests.length === 0) {
+          pestsList.innerHTML = "<li>No common pests/diseases listed.</li>";
+        } else {
+          pests.forEach(p => { const li = document.createElement("li"); li.textContent = p; pestsList.appendChild(li); });
+        }
+      }
+
+      // Feature importance chart
+      const fi = Array.isArray(serverData.feature_importances) ? serverData.feature_importances : [];
+      const labels = fi.map(x => x.name);
+      const values = fi.map(x => Number((x.importance || 0).toFixed(4)));
+
+      if (window._fiChart) {
+        window._fiChart.data.labels = labels;
+        window._fiChart.data.datasets[0].data = values;
+        window._fiChart.update();
+      } else {
+        const ctx = document.getElementById("fi-chart").getContext("2d");
+        window._fiChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Feature importance',
+              data: values,
+              backgroundColor: labels.map(() => '#34d399'),
+              borderColor: labels.map(() => '#059669'),
+              borderWidth: 1
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            scales: { x: { beginAtZero: true } },
+            plugins: { legend: { display: false } }
+          }
+        });
+      }
+
+      // show modal
+      const modal = document.getElementById("modal");
+      modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+
+      // wire tips scroll
+      const viewTipsBtn = document.getElementById("view-tips-btn");
+      if (viewTipsBtn && tipsList) {
+        viewTipsBtn.onclick = () => {
+          tipsList.scrollIntoView({ behavior: "smooth", block: "center" });
+          tipsList.style.transition = "background-color .4s";
+          tipsList.style.backgroundColor = "rgba(16,185,129,0.06)";
+          setTimeout(() => { tipsList.style.backgroundColor = ""; }, 700);
+        };
+      }
+
+      // close wiring
+      const modalClose = document.getElementById("modal-close");
+      const backdrop = document.getElementById("backdrop");
+      modalClose.onclick = closeModal;
+      backdrop.onclick = closeModal;
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      modal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    // Tab switching for modal
+    document.addEventListener("click", function(e) {
+      if (e.target && e.target.classList && e.target.classList.contains('tab-btn')) {
+        const selected = e.target.getAttribute('data-tab');
+        document.querySelectorAll('.tab-btn').forEach(b => {
+          if (b.getAttribute('data-tab') === selected) {
+            b.classList.add('bg-green-50','text-green-700');
+            b.classList.remove('text-gray-600');
+          } else {
+            b.classList.remove('bg-green-50','text-green-700');
+            b.classList.add('text-gray-600');
+          }
+        });
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.add('hidden'));
+        const panel = document.getElementById('tab-' + selected);
+        if (panel) panel.classList.remove('hidden');
+      }
+    });
+
+    // close modal on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  </script>
+</body>
+</html>

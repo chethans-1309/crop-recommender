@@ -1,0 +1,376 @@
+{
+  "apple": {
+    "name": "Apple",
+    "desc": "Temperate tree crop that performs best with cold winters (chill hours) and well-drained soils. Varieties vary by chill requirement.",
+    "temp_range": "Cool temperate (5–20 °C); needs chill hours for many varieties",
+    "soil_requirements": "Well-drained loam, good organic matter, pH 6.0–7.0",
+    "fertilizer_link": "https://www.google.com/search?q=apple+fertilizer+guide",
+    "tips": [
+      "Provide adequate chill hours for chosen variety; choose rootstock for local conditions.",
+      "Prune annually to open canopy and improve light penetration.",
+      "Apply N in split doses; balance with P and K according to soil test.",
+      "Monitor for codling moth and scab; use integrated pest management."
+    ],
+    "irrigation": "Regular irrigation during fruit set and enlargement; avoid waterlogging.",
+    "pests_and_diseases": ["Codling moth", "Apple scab", "Powdery mildew", "Aphids"],
+    "spacing": "3–5 m between trees (depends on rootstock & variety)",
+    "harvest": "Harvest when fruit color and firmness reach variety-specific maturity; store cool."
+  },
+  "banana": {
+    "name": "Banana",
+    "desc": "Fast-growing tropical crop with high water and nutrient demand; responds strongly to potassium.",
+    "temp_range": "Tropical/warm (20–35 °C)",
+    "soil_requirements": "Deep, fertile, well-drained loam rich in organic matter; pH 5.5–7.0",
+    "fertilizer_link": "https://www.google.com/search?q=banana+fertilizer+guide",
+    "tips": [
+      "Apply high-K fertilizer during bunch development for better fruit quality.",
+      "Keep consistent soil moisture; mulch to conserve moisture and nutrients.",
+      "Remove diseased or dead pseudostems; manage suckers for production rhythm.",
+      "Protect bunches from strong winds; support heavy bunches if needed."
+    ],
+    "irrigation": "Frequent, even irrigation; do not let soil dry out during fruiting.",
+    "pests_and_diseases": ["Nematodes", "Panama disease (Fusarium)", "Banana bunchy top virus"],
+    "spacing": "2.5–3.5 m between plants",
+    "harvest": "Harvest when fingers fill out and turn slightly green-yellow depending on market."
+  },
+  "blackgram": {
+    "name": "Blackgram",
+    "desc": "Short-duration legume (Vigna mungo) used for pulses; fixes nitrogen and suits warm climates.",
+    "temp_range": "Warm (20–35 °C)",
+    "soil_requirements": "Sandy loam to loam, well-drained; pH 6–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=blackgram+fertilizer+guide",
+    "tips": [
+      "Use Rhizobium inoculant for better nitrogen fixation when recommended.",
+      "Plant at recommended spacing and avoid waterlogging during germination.",
+      "Harvest on time to avoid shattering and seed quality loss.",
+      "Rotate with cereals to improve soil health and reduce pests."
+    ],
+    "irrigation": "Light, infrequent irrigation; drought-tolerant varieties available.",
+    "pests_and_diseases": ["Pod borer", "Powdery mildew", "Leaf spot"],
+    "spacing": "25–30 cm between rows, 5–10 cm within row (varies by practice)",
+    "harvest": "Harvest when pods dry and seeds rattle; combine or hand-pick carefully."
+  },
+  "chickpea": {
+    "name": "Chickpea",
+    "desc": "Cool-season pulse with moderate water needs; important rotation crop and source of protein.",
+    "temp_range": "Cool to moderate (10–30 °C), best in 15–25 °C",
+    "soil_requirements": "Well-drained loam to clay loam; pH 6.0–8.0",
+    "fertilizer_link": "https://www.google.com/search?q=chickpea+fertilizer+guide",
+    "tips": [
+      "Use phosphorus at sowing for good root establishment.",
+      "Inoculate seed with proper Rhizobium strain if field is legume-naive.",
+      "Avoid waterlogging; use timely weed control early in crop.",
+      "Harvest when pods turn brown and seeds are firm to avoid shattering."
+    ],
+    "irrigation": "Usually rainfed; supplemental irrigation during pod filling can increase yield.",
+    "pests_and_diseases": ["Pod borer", "Ascochyta blight", "Root rot"],
+    "spacing": "30–45 cm rows; plant density depends on variety",
+    "harvest": "Harvest when pods are mature and moisture is low; dry before storage."
+  },
+  "coconut": {
+    "name": "Coconut",
+    "desc": "Long-term tropical tree crop suited to coastal areas; requires well-drained soils and sunshine.",
+    "temp_range": "Tropical (22–32 °C)",
+    "soil_requirements": "Sandy loam with good drainage; tolerant of slightly saline soils; pH 5.5–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=coconut+fertilizer+guide",
+    "tips": [
+      "Maintain regular fertilization with NPK and micronutrients; palms are heavy feeders.",
+      "Ensure good drainage; avoid waterlogging around roots.",
+      "Manage rhinoceros beetle and other pests proactively.",
+      "Intercrop with short-duration species between palms in early years."
+    ],
+    "irrigation": "Regular irrigation in dry months; copra and tender nut production benefits from moisture.",
+    "pests_and_diseases": ["Rhinoceros beetle", "Red palm weevil", "Bud rot"],
+    "spacing": "7–9 m between palms",
+    "harvest": "Harvest mature coconuts as per market (tender vs mature); process promptly for copra."
+  },
+  "coffee": {
+    "name": "Coffee",
+    "desc": "Shade-loving perennial grown in tropical highlands; quality depends on altitude and post-harvest handling.",
+    "temp_range": "Warm highland (15–25 °C), cooler nights preferred",
+    "soil_requirements": "Loam to sandy loam, well-drained, slightly acidic (pH 5–6.5)",
+    "fertilizer_link": "https://www.google.com/search?q=coffee+fertilizer+guide",
+    "tips": [
+      "Provide partial shade for best bean quality, especially for Arabica.",
+      "Apply balanced NPK and micronutrients based on leaf/soil tests.",
+      "Prune to maintain productive canopy and encourage new shoots.",
+      "Harvest selectively and process (dry/wet) promptly to retain quality."
+    ],
+    "irrigation": "Supplemental irrigation during dry spells improves yield; avoid waterlogging.",
+    "pests_and_diseases": ["Coffee berry borer", "Leaf rust", "Black rot"],
+    "spacing": "2–3 m between plants (varies with system)",
+    "harvest": "Harvest ripe cherries by selective picking for best cup quality."
+  },
+  "cotton": {
+    "name": "Cotton",
+    "desc": "Fiber crop that prefers warm temperatures and well-drained soils; sensitive to waterlogging.",
+    "temp_range": "Warm (20–32 °C)",
+    "soil_requirements": "Deep loam or sandy loam with good drainage; pH 5.5–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=cotton+fertilizer+guide",
+    "tips": [
+      "Ensure good seedbed preparation and timely sowing for uniform emergence.",
+      "Apply P at planting and split N applications during vegetative growth.",
+      "Use integrated pest management against bollworms and sucking pests.",
+      "Irrigate during flowering and boll development to maximize lint yield."
+    ],
+    "irrigation": "Irrigate at critical stages (flowering, boll filling); avoid overwatering.",
+    "pests_and_diseases": ["Bollworm", "Aphids", "Bacterial blight"],
+    "spacing": "70–90 cm between rows; plant density varies by practice",
+    "harvest": "Harvest when bolls open and lint is dry; use mechanical or hand picking per scale."
+  },
+  "grapes": {
+    "name": "Grapes",
+    "desc": "Vine crop grown for table, raisin or wine grapes; requires good sunlight and drainage.",
+    "temp_range": "Warm (15–30 °C), variety dependent",
+    "soil_requirements": "Well-drained loam/sandy loam; good aeration; pH 6.0–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=grape+fertilizer+guide",
+    "tips": [
+      "Train vines on trellis for sunlight and airflow to reduce disease.",
+      "Prune annually to manage yield and fruit quality.",
+      "Apply potassium during ripening to improve sugar accumulation.",
+      "Control powdery mildew and downy mildew through timely sprays."
+    ],
+    "irrigation": "Drip irrigation is ideal; reduce water before harvest to concentrate sugars.",
+    "pests_and_diseases": ["Powdery mildew", "Downy mildew", "Fruit flies"],
+    "spacing": "2–3 m between vines (trellis spacing varies with system)",
+    "harvest": "Harvest when sugar (Brix) and flavor meet target for intended use."
+  },
+  "jute": {
+    "name": "Jute",
+    "desc": "Fiber crop grown in warm, humid regions on fertile alluvial soils; fast-growing.",
+    "temp_range": "Warm humid (20–35 °C)",
+    "soil_requirements": "Fertile alluvial loam with good moisture; pH 5.5–6.8",
+    "fertilizer_link": "https://www.google.com/search?q=jute+fertilizer+guide",
+    "tips": [
+      "Maintain fertile, moist soils and timely sowing for good fiber quality.",
+      "Apply nitrogen and phosphorus as per recommendations.",
+      "Harvest at the right time before over-maturity to retain fibre strength.",
+      "Avoid lodging by proper spacing and soil management."
+    ],
+    "irrigation": "Requires consistent moisture; avoid drought stress during growth.",
+    "pests_and_diseases": ["Stem rot", "Leaf blight"],
+    "spacing": "20–30 cm between rows",
+    "harvest": "Pull up plants at proper maturity and rett for fiber extraction."
+  },
+  "kidneybeans": {
+    "name": "Kidneybeans",
+    "desc": "Common bean (Phaseolus) crop used for pulses; prefers warm days and cool nights.",
+    "temp_range": "Warm day, cool night (18–28 °C)",
+    "soil_requirements": "Well-drained loam; avoid waterlogging; pH 6.0–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=kidney+bean+fertilizer+guide",
+    "tips": [
+      "Plant after soil warms; ensure even moisture during flowering and pod set.",
+      "Use disease-free seed and rotate crops to avoid root pathogens.",
+      "Control pests like pod borers with timely interventions.",
+      "Harvest when pods dry; avoid shattering."
+    ],
+    "irrigation": "Moderate irrigation; important during flowering and pod formation.",
+    "pests_and_diseases": ["Aphids", "Pod borer", "Root rot"],
+    "spacing": "30–45 cm between rows",
+    "harvest": "Harvest when pods dry; thresh and dry seeds before storage."
+  },
+  "lentil": {
+    "name": "Lentil",
+    "desc": "Cool-season pulse with low water requirements; good for marginal soils and rotations.",
+    "temp_range": "Cool (10–25 °C)",
+    "soil_requirements": "Well-drained loam, neutral to slightly alkaline pH 6–8",
+    "fertilizer_link": "https://www.google.com/search?q=lentil+fertilizer+guide",
+    "tips": [
+      "Use phosphorus at sowing for root establishment.",
+      "Inoculate with appropriate Rhizobium if needed.",
+      "Control weeds early as lentil is a poor competitor initially.",
+      "Time harvest to avoid shattering and quality loss."
+    ],
+    "irrigation": "Usually rainfed; minimal supplementary irrigation if available.",
+    "pests_and_diseases": ["Ascochyta blight", "Pod borer"],
+    "spacing": "15–30 cm between rows (varies by system)",
+    "harvest": "Harvest when pods dry and seeds are firm; avoid late rains."
+  },
+  "maize": {
+    "name": "Maize",
+    "desc": "Versatile cereal grown for grain, fodder or silage; high nutrient demand, especially N.",
+    "temp_range": "Warm (18–32 °C)",
+    "soil_requirements": "Well-drained loam with good fertility; pH 5.5–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=maize+fertilizer+guide",
+    "tips": [
+      "Use starter fertilizer at planting and side-dress nitrogen during rapid vegetative growth.",
+      "Plant at recommended spacing for targeted yield and mechanization.",
+      "Irrigate during tasseling and grain fill for best yields.",
+      "Rotate with legumes to improve soil nitrogen and break pest cycles."
+    ],
+    "irrigation": "Irrigate at critical stages: knee-high, tasseling, and grain fill.",
+    "pests_and_diseases": ["Stem borer", "Fall armyworm", "Leaf blight"],
+    "spacing": "60–90 cm between rows depending on system",
+    "harvest": "Harvest at physiological maturity; dry grain to safe moisture for storage."
+  },
+  "mango": {
+    "name": "Mango",
+    "desc": "Tropical fruit tree that requires warm climate and deep, well-drained soils; sensitive to frost.",
+    "temp_range": "Warm (24–32 °C), frost sensitive",
+    "soil_requirements": "Deep loam with good drainage; pH 5.5–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=mango+fertilizer+guide",
+    "tips": [
+      "Manage flowering through pruning and nutritional practices for uniform fruiting.",
+      "Apply balanced fertilizer and micronutrients annually based on soil tests.",
+      "Thin excess fruit when necessary to improve size and quality.",
+      "Protect young trees from wind and waterlogging."
+    ],
+    "irrigation": "Regular irrigation for young trees; reduce around harvest to avoid splitting.",
+    "pests_and_diseases": ["Fruit fly", "Anthracnose", "Dieback"],
+    "spacing": "8–12 m between trees",
+    "harvest": "Harvest when fruit color and firmness reach market-specific maturity."
+  },
+  "mothbeans": {
+    "name": "Mothbeans",
+    "desc": "Drought-tolerant short-duration legume, suited to arid and semi-arid regions.",
+    "temp_range": "Warm (25–35 °C)",
+    "soil_requirements": "Sandy loam, well-drained; tolerates poor soils",
+    "fertilizer_link": "https://www.google.com/search?q=mothbean+fertilizer+guide",
+    "tips": [
+      "Sow in well-prepared, moisture-conserving seedbeds for quick germination.",
+      "Use minimal fertilizer; benefit from Rhizobium inoculation in new fields.",
+      "Weed control is critical early in establishment.",
+      "Harvest promptly to avoid shattering in hot, dry conditions."
+    ],
+    "irrigation": "Low irrigation requirement; rely mostly on residual soil moisture.",
+    "pests_and_diseases": ["Pod borer", "Leaf spot"],
+    "spacing": "20–30 cm between rows",
+    "harvest": "Harvest when pods mature and seeds are dry."
+  },
+  "mungbean": {
+    "name": "Mungbean",
+    "desc": "Short-duration legume valued for green pods and dry seeds; fixes nitrogen and improves soil.",
+    "temp_range": "Warm (20–35 °C)",
+    "soil_requirements": "Well-drained loam; pH 6–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=mungbean+fertilizer+guide",
+    "tips": [
+      "Plant at recommended spacing for good pod set.",
+      "Use Rhizobium inoculant where appropriate.",
+      "Manage pests like pod borers with pheromone traps or targeted sprays.",
+      "Dry seeds well before storage to avoid aflatoxin issues."
+    ],
+    "irrigation": "Light irrigation; most varieties are short-duration and rainfed.",
+    "pests_and_diseases": ["Pod borer", "Aphids", "Mungbean yellow mosaic virus"],
+    "spacing": "20–30 cm rows",
+    "harvest": "Harvest when pods mature and dry; thresh carefully."
+  },
+  "muskmelon": {
+    "name": "Muskmelon",
+    "desc": "Vine crop producing aromatic melons; needs warm days, cooler nights and fertile soils.",
+    "temp_range": "Warm (20–30 °C)",
+    "soil_requirements": "Sandy loam with good drainage and organic matter; pH 6–7",
+    "fertilizer_link": "https://www.google.com/search?q=muskmelon+fertilizer+guide",
+    "tips": [
+      "Use raised beds and drip irrigation to keep fruits clean and reduce disease.",
+      "Ensure good pollination (bees) for fruit set; avoid insecticide use during bloom.",
+      "Apply potassium during fruit enlargement for better sweetness.",
+      "Harvest when fruit aroma and slip stage are reached."
+    ],
+    "irrigation": "Regular but moderate irrigation; avoid excess moisture to prevent rot.",
+    "pests_and_diseases": ["Fruit flies", "Powdery mildew", "Fusarium wilt"],
+    "spacing": "1.5–2.0 m between hills",
+    "harvest": "Harvest at full aroma and slip; handle gently to avoid bruising."
+  },
+  "orange": {
+    "name": "Orange",
+    "desc": "Citrus tree that prefers subtropical climates and well-drained soils; sensitive to frost.",
+    "temp_range": "Subtropical (12–30 °C)",
+    "soil_requirements": "Sandy loam, well-drained; pH 5.5–7.0",
+    "fertilizer_link": "https://www.google.com/search?q=orange+fertilizer+guide",
+    "tips": [
+      "Use drip irrigation and mulch to regulate soil moisture and reduce stress.",
+      "Apply balanced NPK and micronutrients (Zn, Mn) based on leaf tests.",
+      "Control citrus pests and diseases proactively (fruit fly, greening where present).",
+      "Thin fruits when necessary for quality and size."
+    ],
+    "irrigation": "Consistent irrigation using drip systems improves fruit quality.",
+    "pests_and_diseases": ["Citrus psyllid (greening)", "Fruit fly", "Canker"],
+    "spacing": "6–8 m between trees",
+    "harvest": "Harvest when fruit attains appropriate color, size and sugar-acid balance."
+  },
+  "papaya": {
+    "name": "Papaya",
+    "desc": "Fast-growing tropical fruit tree grown for early fruiting; requires warm climate and well-drained soil.",
+    "temp_range": "Warm (20–30 °C)",
+    "soil_requirements": "Well-drained loam; pH 6.0–7.0",
+    "fertilizer_link": "https://www.google.com/search?q=papaya+fertilizer+guide",
+    "tips": [
+      "Use disease-free planting material and protect young plants from wind.",
+      "Apply balanced NPK regularly; increase potassium during fruit development.",
+      "Maintain even soil moisture to avoid fruit cracking and drop.",
+      "Prune and remove diseased tissues promptly; manage pollination for fruit set."
+    ],
+    "irrigation": "Regular watering; waterlogging harms roots—good drainage essential.",
+    "pests_and_diseases": ["Papaya ringspot virus", "Fruit flies", "Anthracnose"],
+    "spacing": "2–3 m between plants",
+    "harvest": "Harvest at half-ripe to ripe stage depending on market; handle gently."
+  },
+  "pigeonpeas": {
+    "name": "Pigeonpeas",
+    "desc": "Medium-duration legume used for pulses; tolerant of dry conditions and improves soil fertility.",
+    "temp_range": "Warm (20–35 °C)",
+    "soil_requirements": "Well-drained loam to sandy loam; pH 5.5–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=pigeonpea+fertilizer+guide",
+    "tips": [
+      "Use deep sowing when soil is dry to reach moisture; ensure good germination.",
+      "Minimal fertilizer needed; phosphorus helps early root growth.",
+      "Intercrop or rotate to improve soil fertility and reduce pests.",
+      "Harvest timely to avoid pod shattering and seed loss."
+    ],
+    "irrigation": "Drought-tolerant but benefits from moisture during flowering and pod set.",
+    "pests_and_diseases": ["Pod borer", "Wilt", "Sterility mosaic"],
+    "spacing": "60–90 cm between rows",
+    "harvest": "Harvest when pods are mature and dry; thresh carefully."
+  },
+  "pomegranate": {
+    "name": "Pomegranate",
+    "desc": "Drought-tolerant fruit tree producing long-storing fruit; prefers warm dry climates for quality.",
+    "temp_range": "Warm (20–35 °C); tolerant to heat",
+    "soil_requirements": "Well-drained loam to sandy loam; pH 5.5–7.5",
+    "fertilizer_link": "https://www.google.com/search?q=pomegranate+fertilizer+guide",
+    "tips": [
+      "Ensure good sunlight and reduced humidity to improve fruit color and quality.",
+      "Use drip irrigation; regulate watering to maintain fruit size and reduce cracking.",
+      "Apply balanced fertilizer with attention to potassium for fruit quality.",
+      "Prune to shape trees and improve air circulation."
+    ],
+    "irrigation": "Moderate irrigation; avoid waterlogging; drip is recommended.",
+    "pests_and_diseases": ["Fruit borer", "Anthracnose", "Leaf spot"],
+    "spacing": "4–6 m between trees",
+    "harvest": "Harvest when skin color and internal arils reach maturity; avoid overripe fruit."
+  },
+  "rice": {
+    "name": "Rice",
+    "desc": "Staple cereal that thrives in flooded or saturated soils in many production systems; high water need.",
+    "temp_range": "Warm humid (20–32 °C)",
+    "soil_requirements": "Clayey loam that retains water; pH 5.5–7.0",
+    "fertilizer_link": "https://www.google.com/search?q=rice+fertilizer+guide",
+    "tips": [
+      "Maintain standing water in transplanted systems during early growth stages as recommended.",
+      "Split nitrogen applications (basal + top-dressing) to reduce losses and improve uptake.",
+      "Use recommended varieties and good weed/pest control during establishment.",
+      "Manage water and drain appropriately before harvest for easier threshing."
+    ],
+    "irrigation": "High water requirement; flooded or saturated conditions in many systems.",
+    "pests_and_diseases": ["Stem borer", "Rice blast", "Brown planthopper"],
+    "spacing": "Transplanted spacing ~20×20 cm (varies with system)",
+    "harvest": "Harvest when grains reach physiological maturity; dry to safe moisture before storage."
+  },
+  "watermelon": {
+    "name": "Watermelon",
+    "desc": "Vine crop producing large, fleshy melons; needs warm conditions, well-drained fertile soils and good pollination.",
+    "temp_range": "Warm (22–32 °C)",
+    "soil_requirements": "Sandy loam with good drainage and organic matter; pH 6–7",
+    "fertilizer_link": "https://www.google.com/search?q=watermelon+fertilizer+guide",
+    "tips": [
+      "Ensure adequate pollinator activity (bees) for uniform fruit set.",
+      "Use raised beds and plastic mulch in some systems to warm soil and reduce weeds.",
+      "Irrigate consistently; reduce water near harvest to improve sweetness.",
+      "Harvest when tendril near fruit dries and fruit sound indicates ripeness."
+    ],
+    "irrigation": "Regular irrigation during fruit enlargement; reduce before harvest for sugar concentration.",
+    "pests_and_diseases": ["Fruit flies", "Fusarium wilt", "Aphids"],
+    "spacing": "1.5–2.5 m between hills depending on cultivar",
+    "harvest": "Harvest at optimum sugar content and rind appearance; handle carefully."
+  }
+}
