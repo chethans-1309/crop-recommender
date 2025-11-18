@@ -8,3 +8,6 @@ pytest
 requests
 matplotlib
 seaborn
+gunicorn==20.1.0
+
+flask-cors
